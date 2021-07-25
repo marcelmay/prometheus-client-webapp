@@ -1,6 +1,8 @@
 # prometheus-client-webapp
 A simple WAR wrapper for instrumenting your app server and exposing metrics.
 
+[![Maven Central](https://img.shields.io/maven-central/v/de.m3y.prometheus.client/prometheus-client-webapp)](https://search.maven.org/search?q=g:de.m3y.prometheus.client%20AND%20a:prometheus-client-webapp) 
+
 This is an alternative to the usually preferred [jmx_exporter](https://github.com/prometheus/jmx_exporter)
 and suitable when you have minimal access to your app server,
 e.g. in a large centrally managed setup splitting operations and development responsiblities.
