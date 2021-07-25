@@ -1,0 +1,31 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!-- Configuration -->
+    <listener>
+        <listener-class>
+            de.m3y.prometheus.client.webapp.ConfigurationServletContextListener
+        </listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>jmx_collector_config</param-name>
+        <param-value>
+            ---
+            # Default config embedded in web.xml
+            rules:
+            - pattern: ".*"
+        </param-value>
+    </context-param>
+
+    <!-- Expose metrics via servlet -->
+    <servlet>
+        <servlet-name>metrics</servlet-name>
+        <servlet-class>io.prometheus.client.exporter.MetricsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>metrics</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>
