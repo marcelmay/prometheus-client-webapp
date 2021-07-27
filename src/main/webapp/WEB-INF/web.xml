@@ -12,10 +12,13 @@
     <context-param>
         <param-name>jmx_collector_config</param-name>
         <param-value>
+            <![CDATA[
             ---
             # Default config embedded in web.xml
+            # See https://github.com/prometheus/jmx_exporter#configuration
             rules:
             - pattern: ".*"
+            ]]>
         </param-value>
     </context-param>
 
